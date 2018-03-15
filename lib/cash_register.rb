@@ -10,7 +10,7 @@ class CashRegister
 
   def add_item(title, price, quantity = 1)
     self.total += price * quantity
-    self.last_item = [price, quantity]
+    self.last_item = price * quantity
     quantity.times do
       self.items << title
     end
@@ -27,7 +27,7 @@ class CashRegister
 
   def void_last_transaction
     self.items.pop
-    self.total -= self.last_item[0] * self.last_item[1]
+    self.total -= self.last_item
   end
 
 end
